@@ -131,8 +131,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 4rem; }
-.stat { padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-elevated); }
-.stat-value { font-size: 1.9rem; font-weight: 600; letter-spacing: -0.03em; }
+.stat { display: flex; flex-direction: column-reverse; padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-elevated); }
+.stat-value { margin: 0; font-size: 1.9rem; font-weight: 600; letter-spacing: -0.03em; }
 .stat-label { color: var(--text-dim); font-size: .85rem; }
 
 /* ---------- Sections / cards ---------- */

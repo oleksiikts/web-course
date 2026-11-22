@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Про автора — WebLabs</title>
+  <meta name="description" content="Інформація про автора навчального проєкту з дисципліни «Веб-програмування».">
+  <meta name="theme-color" content="#0e0e0f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти до основного вмісту</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html" aria-label="Веб-програмування — на головну"><span class="logo-mark" aria-hidden="true">W</span>WebLabs</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Меню"><span></span></button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Головна навігація">
+      <ul class="nav-list">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="index.html#labs">Лабораторні</a></li>
+        <li><a href="about.html" aria-current="page">Автор</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions"><a class="btn btn-primary" href="index.html#labs">До лабораторних</a></div>
+  </div>
+</header>
+<main id="main">
+  <section class="hero" aria-labelledby="about-title">
+    <div class="container">
+      <p class="eyebrow">Про автора</p>
+      <h1 class="title-xl" id="about-title">Автор <span class="accent-text">проєкту</span></h1>
+      <p class="lead">Студент, який виконує лабораторні роботи №1–№4 з веб-програмування й збирає їх в один навчальний сайт.</p>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="info-title">
+    <div class="container split">
+      <div class="reveal">
+        <h2 class="title-lg" id="info-title">Контактна інформація</h2>
+        <p class="lead">Персональні дані заповнюються автором вручну перед публікацією.</p>
+      </div>
+      <div class="panel reveal">
+        <dl class="facts">
+          <div><dt>ПІБ</dt><dd class="placeholder">[вкажіть ПІБ]</dd></div>
+          <div><dt>Група</dt><dd class="placeholder">[вкажіть групу]</dd></div>
+          <div><dt>Номер варіанта</dt><dd class="placeholder">[вкажіть номер]</dd></div>
+          <div><dt>Дисципліна</dt><dd>Веб-програмування</dd></div>
+          <div><dt>GitHub</dt><dd><a href="https://github.com/oleksiikts/megu_web" rel="noopener">oleksiikts/megu_web</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="tech-title">
+    <div class="container">
+      <div class="section-head reveal"><p class="eyebrow">Інструменти</p><h2 class="title-lg" id="tech-title">Стек проєкту</h2></div>
+      <ul class="card-grid">
+        <li class="card reveal"><span class="card-icon" aria-hidden="true">H</span><h3>HTML5</h3><p>Семантична розмітка та доступність.</p></li>
+        <li class="card reveal"><span class="card-icon" aria-hidden="true">C</span><h3>CSS3</h3><p>Змінні, grid/flex, адаптивність.</p></li>
+        <li class="card reveal"><span class="card-icon" aria-hidden="true">J</span><h3>JavaScript</h3><p>Чистий JS без фреймворків.</p></li>
+        <li class="card reveal"><span class="card-icon" aria-hidden="true">G</span><h3>Git</h3><p>Історія змістових комітів.</p></li>
+      </ul>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">W</span>WebLabs</a>
+        <p class="footer-note">Навчальний проєкт з дисципліни «Веб-програмування»: лабораторні роботи №1–№4 в одному статичному сайті.</p>
+      </div>
+      <div><h2>Сайт</h2><ul><li><a href="index.html">Головна</a></li><li><a href="about.html">Про автора</a></li></ul></div>
+      <div><h2>Лабораторні</h2><ul><li><a href="index.html#labs">ЛР №1 — Сайт</a></li><li>ЛР №2 — Клієнт-сервер</li><li>ЛР №3 — HTML-розмітка</li><li>ЛР №4 — Семантика</li></ul></div>
+      <div><h2>Технології</h2><ul><li>HTML5</li><li>CSS3</li><li>JavaScript (vanilla)</li></ul></div>
+    </div>
+    <p class="copyright">© <span id="year">2026</span> Навчальний проєкт. Дизайн адаптовано з макета Figma Community.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
