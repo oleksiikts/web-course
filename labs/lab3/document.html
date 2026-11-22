@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Адаптивний вебдизайн — ЛР №3</title>
-  <meta name="description" content="Навчальний документ за варіантом 7: адаптивний вебдизайн, meta viewport, media queries, mobile-first, гнучкі зображення.">
+  <title>Методичні рекомендації з адаптивного вебдизайну — ЛР №3</title>
+  <meta name="description" content="Методичні рекомендації з адаптивного вебдизайну: viewport, гнучка сітка, медіазапити, зображення, mobile-first.">
   <meta name="theme-color" content="#0e0e0f">
   <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../assets/css/style.css">
@@ -23,238 +23,256 @@
   </div>
 </header>
 <main id="main" class="doc">
-  <div class="container doc-layout">
+  <div class="container">
+    <header class="doc-head">
+        <p class="eyebrow">Лабораторна робота №&nbsp;3 · Варіант&nbsp;7</p>
+        <h1 id="doc-title">Методичні рекомендації з адаптивного вебдизайну</h1>
+        <p><small>Автор: Купець Олексій, група ІПЗ-26 · Редакція від <time datetime="2026-11-22">22 листопада 2026&nbsp;р.</time></small></p>
+      </header>
+    <div class="doc-layout">
     <nav class="doc-toc" aria-labelledby="toc-title">
       <h2 id="toc-title">Зміст</h2>
       <ol>
-        <li><a href="#intro">Вступ</a></li>
-        <li><a href="#principles">Три принципи</a></li>
-        <li><a href="#viewport">Meta viewport</a></li>
-        <li><a href="#media">Media queries</a></li>
-        <li><a href="#mobile-first">Mobile-first</a></li>
-        <li><a href="#images">Гнучкі зображення</a></li>
-        <li><a href="#modern">Сучасні інструменти</a></li>
-        <li><a href="#a11y">Доступність</a></li>
-        <li><a href="#testing">Тестування</a></li>
-        <li><a href="#symbols">Спеціальні символи</a></li>
-        <li><a href="#conclusions">Висновки</a></li>
-        <li><a href="#notes">Примітки</a></li>
+        <li><a href="#intro">Основні поняття</a>
+          <ol>
+            <li><a href="#intro-what">Що таке адаптивний вебдизайн</a></li>
+            <li><a href="#intro-terms">Термінологія</a></li>
+            <li><a href="#intro-history">Історія підходу</a></li>
+          </ol>
+        </li>
+        <li><a href="#basics">Технічні основи</a>
+          <ol>
+            <li><a href="#basics-viewport">Метатег viewport</a></li>
+            <li><a href="#basics-grid">Гнучка сітка</a></li>
+            <li><a href="#basics-media">Медіазапити</a></li>
+          </ol>
+        </li>
+        <li><a href="#media">Зображення й типографіка</a>
+          <ol>
+            <li><a href="#media-images">Гнучкі зображення</a></li>
+            <li><a href="#media-text">Текст і спеціальні символи</a></li>
+          </ol>
+        </li>
+        <li><a href="#practice">Практичні рекомендації</a>
+          <ol>
+            <li><a href="#practice-mobile">Підхід mobile-first</a></li>
+            <li><a href="#practice-testing">Тестування</a></li>
+            <li><a href="#practice-mistakes">Типові помилки</a></li>
+          </ol>
+        </li>
+        <li><a href="#summary">Підсумки</a>
+          <ol>
+            <li><a href="#summary-results">Висновки</a></li>
+            <li><a href="#summary-sources">Джерела та примітки</a></li>
+          </ol>
+        </li>
       </ol>
     </nav>
-    <article class="prose">
-      <header>
-        <p class="eyebrow">Лабораторна робота №3 · Варіант 7</p>
-        <h1>Адаптивний вебдизайн</h1>
-        <p><small>Автор: Купець Олексій, група ІПЗ-26 · Опубліковано <time datetime="2026-11-22">22 листопада 2026</time></small></p>
-      </header>
+    <div class="prose">
 
-      <section id="intro">
-        <h2>Вступ</h2>
-        <p><strong>Адаптивний вебдизайн</strong> (<abbr title="Responsive Web Design">RWD</abbr>) — це підхід до створення сайтів, за якого одна й та сама сторінка зручно виглядає на екрані телефона, планшета, ноутбука та великого монітора. Термін запропонував Ітан Маркотт у 2010 році<sup class="fn-ref"><a href="#note-1" id="ref-1">[1]</a></sup>, і відтоді він став стандартом індустрії.</p>
-        <p>Раніше розробники робили окремі версії сайтів для різних пристроїв: <em>мобільну</em>, <em>планшетну</em> та <em>повну</em>. Це подвоювало роботу, ускладнювало підтримку й призводило до розбіжностей у вмісті. Адаптивний підхід вирішує проблему інакше: <mark>вміст один, а подання змінюється залежно від умов перегляду</mark>.</p>
-        <blockquote cite="https://alistapart.com/article/responsive-web-design/">
-          <p>Переказ ідеї: сайт має гнучко реагувати на розмір вікна, а не змушувати користувача масштабувати й прокручувати його вручну.</p>
-          <footer>— за мотивами статті <cite>«Responsive Web Design»</cite>, A List Apart</footer>
-        </blockquote>
-        <p>У цьому документі розглянуто базові принципи, технічні прийоми та інструменти, які допомагають зробити сторінку адаптивною. Сам цей документ теж адаптивний: змініть ширину вікна браузера й подивіться, як перебудовується зміст.</p>
-        <a class="back-top" href="#main">↑ Догори</a>
+      <section id="intro" aria-labelledby="intro-title">
+        <h2 id="intro-title">Основні поняття</h2>
+        <p>Ці рекомендації призначені для здобувачів, які вже знайомі з основами HTML і&nbsp;CSS та хочуть навчитися робити сторінки, зручні на будь-якому пристрої. Матеріал побудовано від загальних понять до практичних порад, тож його можна читати послідовно або переходити до потрібного розділу через зміст.</p>
+
+        <h3 id="intro-what">Що таке адаптивний вебдизайн</h3>
+        <p><dfn id="def-rwd">Адаптивний вебдизайн</dfn> (<abbr title="Responsive Web Design">RWD</abbr>) &mdash; це підхід, за якого одна й та сама сторінка зручно відображається на екрані телефона, планшета, ноутбука та великого монітора. Користувач не повинен масштабувати сторінку пальцями чи прокручувати її горизонтально: макет сам підлаштовується під доступну ширину.</p>
+        <p>Раніше для різних пристроїв створювали окремі версії сайту: <em>мобільну</em>, <em>планшетну</em> та <em>повну</em>. Це подвоювало обсяг роботи й призводило до розбіжностей у вмісті. Адаптивний підхід розв&rsquo;язує проблему інакше: <mark>вміст один, а подання змінюється залежно від умов перегляду</mark>.</p>
+        <figure>
+          <blockquote cite="https://alistapart.com/article/responsive-web-design/">
+            <p>Замість того щоб створювати окремі сайти для кожного нового пристрою, ми можемо зробити один дизайн, що реагує на потреби користувача.</p>
+          </blockquote>
+          <figcaption>&mdash; переклад думки з&nbsp;<cite>«Responsive Web Design»</cite>, Ітан Маркотт, A&nbsp;List Apart, 2010</figcaption>
+        </figure>
+        <p>У&nbsp;довіднику MDN наголошено, що адаптивний вебдизайн &mdash; це <q cite="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design">не окрема технологія, а підхід до вебдизайну</q>. Саме тому далі мова йде не лише про конкретні властивості CSS, а й про порядок прийняття рішень.</p>
+
+        <h3 id="intro-terms">Термінологія</h3>
+        <p>Перед тим як переходити до коду, варто домовитися про терміни, які використовуються в&nbsp;документі.</p>
+        <dl>
+          <dt>Вьюпорт (viewport)</dt>
+          <dd>Видима область сторінки у вікні браузера. На мобільних пристроях її ширина залежить від налаштувань метатегу <code>viewport</code>.</dd>
+          <dt>Точка зламу (breakpoint)</dt>
+          <dd>Ширина вьюпорту, на якій макет помітно змінюється, наприклад кількість колонок зменшується з&nbsp;трьох до однієї.</dd>
+          <dt>Медіазапит (media query)</dt>
+          <dd>Умова в&nbsp;CSS, за якої застосовується певний набір правил: ширина екрана, орієнтація, тема оформлення тощо.</dd>
+          <dt>Гнучка сітка</dt>
+          <dd>Макет, у&nbsp;якому ширини колонок задано відносними одиницями (<code>%</code>, <code>fr</code>), а не фіксованими пікселями.</dd>
+          <dt>Mobile-first</dt>
+          <dd>Стратегія, за якої базові стилі пишуть для найменшого екрана, а для більших додають розширення.</dd>
+          <dt>Щільність пікселів (DPR)</dt>
+          <dd>Відношення фізичних пікселів екрана до логічних пікселів CSS; на сучасних телефонах становить 2&ndash;3.</dd>
+        </dl>
+
+        <h3 id="intro-history">Історія підходу</h3>
+        <p>Термін запропонував Ітан Маркотт у&nbsp;<time datetime="2010-05">травні 2010&nbsp;р.</time><sup><a href="#note-1" id="ref-1">[1]</a></sup> Тоді основним інструментом розмітки були плаваючі блоки, а сьогодні &mdash; Flexbox і&nbsp;Grid. Порада <s>«робіть окрему мобільну версію сайту на піддомені m.»</s> давно застаріла: пошукові системи індексують переважно мобільну версію сторінки, тому вона має містити весь вміст.</p>
+        <p>Рекомендовану ширину основного контейнера в&nbsp;навчальних матеріалах раніше вказували як <del>960&nbsp;px</del> <ins>максимум 1200&ndash;1280&nbsp;px з&nbsp;гнучкими полями</ins>, оскільки фіксована ширина не враховує різноманіття екранів.</p>
+        <p class="back-toc"><a href="#toc-title">↑ До змісту</a></p>
       </section>
 
-      <section id="principles">
-        <h2>Три принципи</h2>
-        <p>Класична формула адаптивності складається з трьох складників:</p>
-        <ol>
-          <li>Гнучка сітка
+      <section id="basics" aria-labelledby="basics-title">
+        <h2 id="basics-title">Технічні основи</h2>
+        <p>Адаптивна сторінка тримається на трьох складниках: правильному метатегу <code>viewport</code>, гнучкій сітці та медіазапитах. Якщо прибрати будь-який із них, макет на мобільному пристрої поводитиметься непередбачувано.</p>
+
+        <h3 id="basics-viewport">Метатег viewport</h3>
+        <p>Без цього метатегу мобільний браузер вважає, що сторінка розрахована на ширину близько 980&nbsp;px, і просто зменшує її. Текст стає дрібним, а медіазапити не спрацьовують. Метатег розміщують у&nbsp;<code>&lt;head&gt;</code> кожної сторінки:</p>
+        <figure>
+          <figcaption>Лістинг 1. Мінімальний каркас адаптивного документа</figcaption>
+<pre tabindex="0" role="region" aria-label="Лістинг 1"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="uk"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Адаптивна сторінка&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </figure>
+        <p>Значення <code>width=device-width</code> вирівнює ширину вьюпорту з&nbsp;логічною шириною екрана, а <code>initial-scale=1</code> вимикає початкове масштабування. Забороняти користувачу збільшувати сторінку (<code>user-scalable=no</code>) не можна: це погіршує доступність.</p>
+
+        <h3 id="basics-grid">Гнучка сітка</h3>
+        <p>Гнучка сітка будується за кількома правилами:</p>
+        <ul>
+          <li>ширини задаються відносно батьківського елемента:
             <ul>
-              <li>ширина колонок задається у відсотках або через <code>fr</code>;</li>
-              <li>відступи вимірюються відносними одиницями:
+              <li>у&nbsp;відсотках &mdash; для простих макетів;</li>
+              <li>через одиницю <code>fr</code> &mdash; у&nbsp;CSS Grid:
                 <ul>
-                  <li><code>em</code> і <code>rem</code> для тексту;</li>
-                  <li><code>%</code> і <code>vw</code> для макета.</li>
+                  <li><code>1fr</code> займає одну частку вільного місця;</li>
+                  <li><code>minmax(0, 1fr)</code> не дає колонці розтягнутися через довгий вміст.</li>
                 </ul>
               </li>
             </ul>
           </li>
-          <li>Гнучкі зображення й медіа, що не виходять за межі контейнера.</li>
-          <li>Медіазапити (<i lang="en">media queries</i>), які застосовують різні стилі за різних умов.</li>
-        </ol>
-        <h3>Чому не фіксована ширина?</h3>
-        <p>Фіксований макет шириною 960&nbsp;px на екрані телефона змушує користувача гортати сторінку вбік. На широкому моніторі той самий макет залишає порожні поля. Гнучкий макет використовує доступний простір раціонально.</p>
-        <h4>Типові помилки новачків</h4>
-        <ul>
-          <li>задавати ширину блоків у пікселях;</li>
-          <li>забувати про <code>meta viewport</code>;</li>
-          <li>ховати важливий вміст на мобільних замість його перебудови.</li>
+          <li>відступи й розміри шрифту вимірюються в&nbsp;<code>rem</code> та <code>em</code>;</li>
+          <li>максимальна ширина обмежується властивістю <code>max-width</code>, а не <code>width</code>.</li>
         </ul>
-        <a class="back-top" href="#main">↑ Догори</a>
-      </section>
+        <p>Перевести фіксовану ширину блоку в&nbsp;відсотки допомагає класична формула: <var>ширина у&nbsp;%</var> = <var>ширина блоку</var> &divide; <var>ширина контейнера</var> &times; 100. Наприклад, блок 300&nbsp;px у&nbsp;контейнері 1200&nbsp;px займає 25&nbsp;%.</p>
 
-      <section id="viewport">
-        <h2>Meta viewport</h2>
-        <p>Мобільні браузери за замовчуванням емулюють «віртуальне вікно» шириною близько 980&nbsp;px, а потім зменшують сторінку. Щоб цього уникнути, у <code>&lt;head&gt;</code> додають мета-тег:</p>
-<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></pre>
-        <p>Значення <var>width=device-width</var> каже браузеру взяти реальну ширину екрана, а <var>initial-scale=1</var> задає початковий масштаб 100&nbsp;%. Без цього рядка жодні медіазапити на телефоні не спрацюють так, як очікується.</p>
-        <p>Не варто вимикати масштабування (<code>user-scalable=no</code>): це погіршує доступність для людей зі слабким зором.</p>
-        <a class="back-top" href="#main">↑ Догори</a>
-      </section>
-
-      <section id="media">
-        <h2>Media queries</h2>
-        <p>Медіазапит — це умова в CSS, яка вмикає блок правил лише за певних характеристик пристрою, найчастіше за ширини вікна:</p>
-<pre><code>.cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-
-@media (min-width: 600px) {
-  .cards { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 1024px) {
-  .cards { grid-template-columns: repeat(3, 1fr); }
-}</code></pre>
-        <p>Значення, за яких макет змінюється, називають <strong>контрольними точками</strong> (<i lang="en">breakpoints</i>). Їх краще вибирати за вмістом, а не за моделями конкретних пристроїв.</p>
-        <div class="table-wrap">
-          <table>
-            <caption>Приклад набору контрольних точок</caption>
-            <colgroup><col><col><col></colgroup>
-            <thead><tr><th scope="col">Назва</th><th scope="col">Ширина</th><th scope="col">Колонок</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Мобільний</th><td>до 599&nbsp;px</td><td>1</td></tr>
-              <tr><th scope="row">Планшет</th><td>600–1023&nbsp;px</td><td>2</td></tr>
-              <tr><th scope="row">Десктоп</th><td>від 1024&nbsp;px</td><td>3</td></tr>
-            </tbody>
-            <tfoot><tr><td colspan="3">Значення умовні та залежать від вмісту.</td></tr></tfoot>
-          </table>
-        </div>
+        <h3 id="basics-media">Медіазапити</h3>
+        <p>Медіазапит застосовує правила лише тоді, коли виконано умову. У&nbsp;підході mobile-first використовують <code>min-width</code>, тобто стилі додаються в&nbsp;міру зростання екрана:</p>
         <figure>
-          <img src="img/breakpoints.svg" width="640" height="220" alt="Схема з трьох макетів: мобільний у одну колонку, планшет у дві, десктоп у три">
-          <figcaption>Рис. 1. Зміна кількості колонок на різних контрольних точках.</figcaption>
+          <figcaption>Лістинг 2. Сітка карток із двома точками зламу</figcaption>
+<pre tabindex="0" role="region" aria-label="Лістинг 2"><code>.cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+
+@media (min-width: 40em) &amp;&amp; (orientation: landscape) { /* &lt;-- так писати НЕ можна */ }
+
+@media (min-width: 40em) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 64em) {
+  .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}</code></pre>
         </figure>
-        <a class="back-top" href="#main">↑ Догори</a>
-      </section>
-
-      <section id="mobile-first">
-        <h2>Mobile-first</h2>
-        <p>Підхід <i lang="en">mobile-first</i> означає, що базові стилі пишуть для найменшого екрана, а потім розширюють їх через <code>min-width</code>. Це дає кілька переваг: менше коду для слабких пристроїв, природний порядок каскаду та простіша підтримка.</p>
-        <h3>Порядок роботи</h3>
-        <ol>
-          <li>Визначити зміст і пріоритети на малому екрані.</li>
-          <li>Написати базові стилі без медіазапитів.</li>
-          <li>Перевірити сторінку, поступово розширюючи вікно, і додати контрольну точку там, де макет «ламається».</li>
-          <li>Повторити перевірку на реальних пристроях.</li>
-        </ol>
-        <details>
-          <summary>Чим відрізняється <code>min-width</code> від <code>max-width</code>?</summary>
-          <p>Запит <code>min-width</code> діє від зазначеної ширини й вище, тому підходить для mobile-first. Запит <code>max-width</code> діє до зазначеної ширини, і його зазвичай використовують у підході desktop-first.</p>
-        </details>
-        <a class="back-top" href="#main">↑ Догори</a>
-      </section>
-
-      <section id="images">
-        <h2>Гнучкі зображення</h2>
-        <p>Найпростіше правило для адаптивних зображень складається з двох властивостей:</p>
-<pre><code>img { max-width: 100%; height: auto; }</code></pre>
-        <p>Для економії трафіку використовують атрибут <code>srcset</code> і елемент <code>&lt;picture&gt;</code>, які дозволяють браузеру обрати файл потрібного розміру:</p>
-<pre><code>&lt;picture&gt;
-  &lt;source media="(min-width: 1024px)" srcset="hero-large.webp"&gt;
-  &lt;img src="hero-small.webp" alt="Опис зображення" width="600" height="400"&gt;
-&lt;/picture&gt;</code></pre>
-        <p>Завжди вказуйте <var>width</var> і <var>height</var>, щоб браузер зарезервував місце до завантаження й сторінка не «стрибала»<sup class="fn-ref"><a href="#note-2" id="ref-2">[2]</a></sup>.</p>
-        <a class="back-top" href="#main">↑ Догори</a>
-      </section>
-
-      <section id="modern">
-        <h2>Сучасні інструменти</h2>
-        <p>CSS3 надає потужні засоби, які зменшують потребу в окремих медіазапитах:</p>
-        <dl>
-          <dt>Flexbox</dt>
-          <dd>Одновимірне розташування елементів із перенесенням рядків (<code>flex-wrap</code>).</dd>
-          <dt>CSS Grid</dt>
-          <dd>Двовимірна сітка; запис <code>repeat(auto-fit, minmax(240px, 1fr))</code> створює адаптивні колонки без медіазапитів.</dd>
-          <dt><code>clamp()</code></dt>
-          <dd>Задає розмір між мінімумом і максимумом, наприклад <code>font-size: clamp(1rem, 2.5vw, 1.5rem)</code>.</dd>
-          <dt>Container queries</dt>
-          <dd>Стилі залежать від розміру батьківського контейнера, а не вікна браузера.</dd>
-        </dl>
-        <p>Для відображення клавіш і виводу програм використовують окремі елементи: натисніть <kbd>F12</kbd>, щоб відкрити інструменти розробника, а у консолі побачите повідомлення на кшталт <samp>Viewport: 375 × 812</samp>.</p>
-        <a class="back-top" href="#main">↑ Догори</a>
-      </section>
-
-      <section id="a11y">
-        <h2>Адаптивність і доступність</h2>
-        <p>Адаптивний сайт має бути зручним не лише за розміром екрана, а й за способом взаємодії. Одні користувачі гортають сторінку пальцем, інші — клавіатурою чи екранним зчитувачем. Тому разом із розмірами варто враховувати доступність: достатній контраст тексту, видимий фокус, логічний порядок заголовків і зрозумілі підписи до елементів форм.</p>
-        <h3>Продуктивність на мобільних мережах</h3>
-        <p>Повільне з'єднання — окрема проблема мобільного перегляду. Кожен зайвий мегабайт збільшує час очікування та витрати трафіку. Тому до адаптивності належить і оптимізація: стиснення зображень, відкладене завантаження (<code>loading="lazy"</code>) і мінімум зовнішніх скриптів.</p>
-        <h4>Короткий перелік перевірок</h4>
-        <h5>Розмітка</h5>
-        <p>Один заголовок першого рівня на сторінку, послідовні рівні заголовків, змістовні атрибути <code>alt</code>.</p>
-        <h6>Стилі</h6>
-        <p>Відносні одиниці, відсутність горизонтальної прокрутки, гідне значення міжрядкового інтервалу.</p>
-        <a class="back-top" href="#main">↑ Догори</a>
-      </section>
-
-      <section id="testing">
-        <h2>Тестування</h2>
-        <p>Адаптивність потрібно перевіряти на кількох рівнях:</p>
-        <ul>
-          <li>Емуляція в браузері
-            <ul>
-              <li>режим пристрою в DevTools (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd>);</li>
-              <li>зміна ширини вікна вручну.</li>
-            </ul>
-          </li>
-          <li>Реальні пристрої
-            <ul>
-              <li>телефон і планшет різних розмірів;</li>
-              <li>різні браузери та операційні системи.</li>
-            </ul>
-          </li>
-          <li>Автоматичні перевірки: Lighthouse та валідатор W3C.</li>
-        </ul>
-        <hr>
-        <p>Окремо перевіряють горизонтальну прокрутку, розмір цілей натискання (не менше 44&times;44&nbsp;px), читабельність тексту й контрастність.</p>
-        <a class="back-top" href="#main">↑ Догори</a>
-      </section>
-
-      <section id="symbols">
-        <h2>Спеціальні символи</h2>
-        <p>У HTML службові символи записують через сутності (<i lang="en">entities</i>), щоб браузер не сприйняв їх як розмітку.</p>
-        <div class="table-wrap">
-          <table>
-            <caption>Найуживаніші сутності HTML</caption>
-            <thead><tr><th scope="col">Символ</th><th scope="col">Запис</th><th scope="col">Призначення</th></tr></thead>
-            <tbody>
-              <tr><td>&lt;</td><td><code>&amp;lt;</code></td><td>менше (початок тега)</td></tr>
-              <tr><td>&gt;</td><td><code>&amp;gt;</code></td><td>більше (кінець тега)</td></tr>
-              <tr><td>&amp;</td><td><code>&amp;amp;</code></td><td>амперсанд</td></tr>
-              <tr><td>&laquo;&nbsp;&raquo;</td><td><code>&amp;laquo; &amp;raquo;</code></td><td>лапки-«ялинки»</td></tr>
-              <tr><td>&mdash;</td><td><code>&amp;mdash;</code></td><td>довге тире</td></tr>
-              <tr><td>&copy; &trade; &reg;</td><td><code>&amp;copy; &amp;trade; &amp;reg;</code></td><td>авторське право, торгова марка</td></tr>
-              <tr><td>&times; &deg; &euro;</td><td><code>&amp;times; &amp;deg; &amp;euro;</code></td><td>множення, градус, євро</td></tr>
-              <tr><td>&hellip;</td><td><code>&amp;hellip;</code></td><td>три крапки</td></tr>
-            </tbody>
-          </table>
+        <p>Другий рядок лістингу навмисно показує помилку: умови в&nbsp;медіазапиті поєднують словом <code>and</code>, а не символами <code>&amp;&amp;</code>. Типові точки зламу наведено в&nbsp;таблиці.</p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Таблиця 1. Орієнтовні точки зламу">
+        <table>
+          <caption>Таблиця 1. Орієнтовні точки зламу</caption>
+          <thead><tr><th scope="col">Пристрій</th><th scope="col">Ширина</th><th scope="col">Колонок</th></tr></thead>
+          <tbody>
+            <tr><td>Телефон</td><td>&lt; 640&nbsp;px</td><td>1</td></tr>
+            <tr><td>Планшет</td><td>640&ndash;1023&nbsp;px</td><td>2</td></tr>
+            <tr><td>Ноутбук і монітор</td><td>&ge; 1024&nbsp;px</td><td>3</td></tr>
+          </tbody>
+        </table>
         </div>
-        <p>Нерозривний пробіл (<code>&amp;nbsp;</code>) утримує число й одиницю виміру в одному рядку, наприклад 960&nbsp;px. Для індексів і ступенів застосовують <code>&lt;sub&gt;</code> і <code>&lt;sup&gt;</code>: H<sub>2</sub>O, 10<sup>3</sup>.</p>
-        <p>Адреса для зв'язку:</p>
-        <address>Купець Олексій<br>група ІПЗ-26<br><a href="https://github.com/oleksiikts/web-course" rel="noopener">github.com/oleksiikts/web-course</a></address>
-        <a class="back-top" href="#main">↑ Догори</a>
+        <p class="back-toc"><a href="#toc-title">↑ До змісту</a></p>
       </section>
 
-      <section id="conclusions">
-        <h2>Висновки</h2>
-        <p>Адаптивний вебдизайн — це не окрема технологія, а <strong>набір практик</strong>: гнучка сітка, гнучкі зображення, медіазапити та правильний <code>meta viewport</code>. Підхід mobile-first допомагає почати з головного й поступово додавати складність.</p>
-        <p>Під час виконання роботи було опрацьовано основні елементи HTML5: заголовки, списки різного рівня вкладеності, цитати, код, таблиці, зображення, спеціальні символи та внутрішню навігацію між розділами.</p>
-        <a class="back-top" href="#main">↑ Догори</a>
+      <section id="media" aria-labelledby="media-title">
+        <h2 id="media-title">Зображення й типографіка</h2>
+        <p>Навіть ідеальна сітка не врятує сторінку, якщо зображення виходять за межі екрана, а текст неможливо прочитати без масштабування. Цей розділ присвячено вмісту всередині сітки.</p>
+
+        <h3 id="media-images">Гнучкі зображення</h3>
+        <p>Найпростіше правило &mdash; обмежити ширину зображення шириною контейнера: <code>img { max-width: 100%; height: auto; }</code>. Атрибути <code>width</code> і&nbsp;<code>height</code> у&nbsp;розмітці все одно потрібні: браузер заздалегідь резервує місце й сторінка не «стрибає» під час завантаження<sup><a href="#note-2" id="ref-2">[2]</a></sup>.</p>
+        <figure>
+          <img src="img/breakpoints.svg" width="800" height="300" alt="Схема: одна колонка на телефоні, дві на планшеті, три на моніторі">
+          <figcaption>Рис. 1. Перебудова сітки карток на різних ширинах екрана</figcaption>
+        </figure>
+        <p>Для фотографій варто віддавати різні файли залежно від екрана. Атрибут <code>srcset</code> перелічує варіанти, а <code>sizes</code> підказує браузеру, яку ширину займе зображення:</p>
+        <figure>
+          <figcaption>Лістинг 3. Адаптивне зображення</figcaption>
+<pre tabindex="0" role="region" aria-label="Лістинг 3"><code>&lt;img src="photo-800.jpg"
+     srcset="photo-400.jpg 400w, photo-800.jpg 800w, photo-1600.jpg 1600w"
+     sizes="(min-width: 64em) 33vw, 100vw"
+     width="800" height="533" alt="Опис зображення"&gt;</code></pre>
+        </figure>
+
+        <h3 id="media-text">Текст і спеціальні символи</h3>
+        <p>Розмір основного тексту не повинен бути меншим за 16&nbsp;px, а довжина рядка &mdash; оптимально 45&ndash;75 символів. Плавну зміну розміру заголовків дає функція <code>clamp()</code>: значення змінюється між мінімумом і максимумом пропорційно ширині вьюпорту.</p>
+        <p>На вузьких екранах довгі слова ламають макет. М&rsquo;який перенос дозволяє браузеру розірвати слово в&nbsp;заздалегідь визначеному місці: інтер&shy;на&shy;ціо&shy;на&shy;лі&shy;за&shy;ція, мікро&shy;сер&shy;віс&shy;на ар&shy;хі&shy;тек&shy;ту&shy;ра. Нерозривний пробіл, навпаки, забороняє розрив, наприклад між ініціалами і прізвищем: Е.&nbsp;Маркотт.</p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Таблиця 2. Символьні посилання, використані в документі">
+        <table>
+          <caption>Таблиця 2. Символьні посилання, використані в документі</caption>
+          <thead><tr><th scope="col">Символ</th><th scope="col">Запис</th><th scope="col">Призначення</th></tr></thead>
+          <tbody>
+            <tr><td>(пробіл)</td><td><code>&amp;nbsp;</code></td><td>нерозривний пробіл: 16&nbsp;px</td></tr>
+            <tr><td>&mdash;</td><td><code>&amp;mdash;</code></td><td>тире між частинами речення</td></tr>
+            <tr><td>&ndash;</td><td><code>&amp;ndash;</code></td><td>діапазон: 640&ndash;1023</td></tr>
+            <tr><td>&laquo; &raquo;</td><td><code>&amp;laquo; &amp;raquo;</code></td><td>лапки-«ялинки»</td></tr>
+            <tr><td>&le; &ge; &times; &divide;</td><td><code>&amp;le; &amp;ge; &amp;times; &amp;divide;</code></td><td>математичні знаки: LCP &le; 2,5&nbsp;с</td></tr>
+            <tr><td>(невидимий)</td><td><code>&amp;shy;</code></td><td>м&rsquo;який перенос у довгих термінах</td></tr>
+            <tr><td>&lt; &gt; &amp;</td><td><code>&amp;lt; &amp;gt; &amp;amp;</code></td><td>екранування в&nbsp;лістингах коду</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>Хімічні та математичні записи оформлюють елементами <code>sub</code> і <code>sup</code>: H<sub>2</sub>O, 2<sup>10</sup> = 1024.</p>
+        <p class="back-toc"><a href="#toc-title">↑ До змісту</a></p>
       </section>
 
-      <section id="notes">
-        <h2>Примітки</h2>
-        <ol>
-          <li id="note-1">Маркотт Е. Responsive Web Design. A List Apart, 2010. <a href="#ref-1">↩ Повернутися до тексту</a></li>
-          <li id="note-2">Явні розміри зображення допомагають уникнути зміщення макета під час завантаження. <a href="#ref-2">↩ Повернутися до тексту</a></li>
+      <section id="practice" aria-labelledby="practice-title">
+        <h2 id="practice-title">Практичні рекомендації</h2>
+        <p>Теорія корисна лише тоді, коли перетворюється на звичку. Нижче зібрано порядок роботи над адаптивною сторінкою, способи перевірки результату та найпоширеніші помилки.</p>
+
+        <h3 id="practice-mobile">Підхід mobile-first</h3>
+        <p>Працювати зручно в такій послідовності (перші два кроки &mdash; підготовчі, тому нумерація продовжується з&nbsp;третього):</p>
+        <ol start="3">
+          <li>Зверстати вміст для екрана шириною 320&ndash;375&nbsp;px в одну колонку.</li>
+          <li>Збільшувати ширину вікна, доки макет не почне виглядати незграбно, і&nbsp;там додати точку зламу.</li>
+          <li>Повторювати попередній крок до ширини великого монітора.</li>
         </ol>
-        <p><small>© 2026 Купець Олексій, ІПЗ-26. Навчальна робота. <a href="parser-test.html">Перейти до parser-test.html</a></small></p>
+        <p>Такий підхід змушує одразу визначити, що на сторінці головне: на маленькому екрані немає місця для другорядних блоків.</p>
+
+        <h3 id="practice-testing">Тестування</h3>
+        <p>Найшвидший спосіб перевірити адаптивність &mdash; режим емуляції пристроїв в&nbsp;інструментах розробника. У&nbsp;Chrome він вмикається поєднанням <kbd>Ctrl</kbd>&nbsp;+&nbsp;<kbd>Shift</kbd>&nbsp;+&nbsp;<kbd>M</kbd> після відкриття панелі клавішею <kbd>F12</kbd>. Контрольні етапи перевірки позначено літерами:</p>
+        <ol type="a">
+          <li>немає горизонтальної прокрутки на ширині 320&nbsp;px;</li>
+          <li>усі посилання та кнопки мають розмір щонайменше 24&times;24&nbsp;px;</li>
+          <li>сторінка коректно збільшується до 200&nbsp;% без втрати вмісту.</li>
+        </ol>
+        <p>Наявність горизонтальної прокрутки можна перевірити в&nbsp;консолі. Якщо результат більший за нуль, якийсь елемент виходить за межі екрана:</p>
+        <p><samp>&gt; document.documentElement.scrollWidth - document.documentElement.clientWidth<br>0</samp></p>
+        <p>Емулятор не замінює реальних пристроїв: перед публікацією сторінку варто відкрити хоча б на одному справжньому телефоні.</p>
+
+        <h3 id="practice-mistakes">Типові помилки</h3>
+        <p>Список упорядковано від найменш до найбільш критичної помилки, тому нумерація зворотна:</p>
+        <ol reversed>
+          <li>Однакові відступи на всіх екранах: на телефоні вони «з&rsquo;їдають» корисну площу.</li>
+          <li>Приховування важливого вмісту на мобільних пристроях замість його перекомпонування.</li>
+          <li>Таблиці й блоки коду без горизонтальної прокрутки, які розширюють усю сторінку.</li>
+          <li>Відсутній метатег <code>viewport</code>, через що медіазапити не працюють зовсім.</li>
+        </ol>
+        <p class="back-toc"><a href="#toc-title">↑ До змісту</a></p>
       </section>
-    </article>
+
+      <section id="summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Підсумки</h2>
+        <p>Наостанок &mdash; короткі висновки та перелік джерел, на які спираються ці рекомендації.</p>
+
+        <h3 id="summary-results">Висновки</h3>
+        <p>Адаптивний вебдизайн &mdash; це <strong>набір практик</strong>: метатег <code>viewport</code>, гнучка сітка, гнучкі зображення та медіазапити. Підхід mobile-first допомагає почати з&nbsp;головного й поступово додавати складність, а регулярне тестування на різних ширинах дозволяє вчасно помітити проблеми.</p>
+        <p>Сам цей документ теж адаптивний: змініть ширину вікна браузера й подивіться, як зміст переміщується над основним текстом, а таблиці отримують власну прокрутку. Для порівняння з&nbsp;невалідною розміткою перегляньте <a href="parser-test.html">тестовий файл із&nbsp;навмисними помилками</a>.</p>
+
+        <h3 id="summary-sources">Джерела та примітки</h3>
+        <ol>
+          <li id="note-1">Marcotte E. Responsive Web Design // A List Apart. 2010. <a href="#ref-1">↩ До тексту</a></li>
+          <li id="note-2">Явні розміри зображення запобігають зміщенню макета (метрика <abbr title="Cumulative Layout Shift">CLS</abbr>). <a href="#ref-2">↩ До тексту</a></li>
+          <li>MDN Web Docs. Responsive design. Mozilla.</li>
+          <li>HTML Living Standard. WHATWG.</li>
+        </ol>
+        <address>Автор рекомендацій: Купець Олексій, група ІПЗ-26, <a href="https://github.com/oleksiikts" rel="noopener">github.com/oleksiikts</a></address>
+        <p class="back-toc"><a href="#toc-title">↑ До змісту</a></p>
+      </section>
+    </div>
+    </div>
   </div>
 </main>
 <footer class="site-footer">
