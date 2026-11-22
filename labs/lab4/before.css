@@ -1,0 +1,15 @@
+/* Початкова НЕсемантична версія: навмисно погана доступність (для порівняння в ЛР №4) */
+body { margin: 0; background: #e8e8e8; font-family: Arial, sans-serif; font-size: 15px; }
+.wrapper { max-width: 760px; margin: 0 auto; background: #f2f2f2; padding: 20px; }
+.topbar { background: #ddd; padding: 8px; }
+.topbar a { color: #aaa; margin-right: 10px; font-size: 12px; text-decoration: none; }
+.big-title { font-size: 32px; font-weight: bold; color: #999; margin: 20px 0 8px; }
+.sub-title { font-size: 22px; font-weight: bold; color: #888; margin: 22px 0 6px; }
+.text { color: #9a9a9a; line-height: 1.5; margin-bottom: 10px; }
+.meta { font-size: 12px; color: #aaa; }
+.item { margin-left: 18px; color: #999; }
+.code { font-family: monospace; background: #ddd; color: #aaa; padding: 8px; white-space: pre-wrap; }
+.box { border: 1px solid #ccc; padding: 10px; margin: 12px 0; color: #aaa; }
+.fake-btn { display: inline-block; background: #ccc; color: #bbb; padding: 4px 8px; font-size: 12px; cursor: pointer; margin-bottom: 8px; }
+.hidden-answer { display: none; color: #999; margin-bottom: 8px; }
+.foot { margin-top: 30px; font-size: 11px; color: #bbb; }
