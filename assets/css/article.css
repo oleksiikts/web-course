@@ -1,0 +1,53 @@
+/* Типографіка навчальних документів (ЛР №3, №4) */
+.doc { padding: 3rem 0 5rem; }
+.doc-layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 3rem; align-items: start; }
+.doc-toc { position: sticky; top: calc(var(--header-h) + 1.5rem); padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-elevated); font-size: .9rem; }
+.doc-toc h2 { font-size: .8rem; color: var(--text-dim); margin-bottom: .75rem; letter-spacing: 0; }
+.doc-toc ol { padding-left: 1.1rem; margin: 0; }
+.doc-toc li { margin: .35rem 0; }
+.doc-toc a { color: var(--text-muted); } .doc-toc a:hover { color: var(--accent-light); }
+.prose { max-width: 46rem; color: var(--text-muted); }
+.prose h1 { color: var(--text); font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; }
+.prose h2 { color: var(--text); font-size: 1.7rem; margin: 3rem 0 1rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.prose h3 { color: var(--text); font-size: 1.25rem; margin: 2rem 0 .75rem; }
+.prose h4 { color: var(--text); font-size: 1.05rem; margin: 1.5rem 0 .5rem; }
+.prose h5, .prose h6 { color: var(--text-muted); font-size: .9rem; margin: 1.25rem 0 .4rem; }
+.prose strong { color: var(--text); }
+.prose a { color: var(--accent-light); text-decoration: underline; text-underline-offset: 3px; }
+.prose mark { background: rgba(255, 98, 67, .25); color: var(--text); padding: 0 .2em; border-radius: 3px; }
+.prose abbr[title] { text-decoration: underline dotted; cursor: help; }
+.prose ul, .prose ol { padding-left: 1.4rem; margin: 0 0 1em; }
+.prose ul { list-style: disc; } .prose ol { list-style: decimal; }
+.prose li { margin: .3rem 0; } .prose li > ul, .prose li > ol { margin: .3rem 0 0; }
+.prose ul ul { list-style: circle; } .prose ul ul ul { list-style: square; }
+.prose dt { color: var(--text); font-weight: 600; margin-top: .9rem; } .prose dd { margin: .2rem 0 0 1.2rem; }
+.prose blockquote { margin: 1.5rem 0; padding: 1rem 1.25rem; border-left: 3px solid var(--accent); background: var(--bg-elevated); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+.prose blockquote p { margin: 0 0 .5rem; color: var(--text); } .prose blockquote footer { color: var(--text-dim); font-size: .85rem; border: 0; padding: 0; }
+.prose :not(pre) > code, .prose kbd, .prose samp, .prose var { font-family: var(--font-mono); font-size: .88em; padding: .1em .4em; border-radius: 4px; background: rgba(255,255,255,.07); color: var(--text); }
+.prose kbd { border: 1px solid var(--border-strong); border-bottom-width: 2px; }
+.prose pre { margin: 1.25rem 0; }
+.prose figure { margin: 2rem 0; } .prose figcaption { color: var(--text-dim); font-size: .85rem; margin-top: .6rem; }
+.prose figure img, .prose figure svg { width: 100%; height: auto; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-elevated); }
+.table-wrap { overflow-x: auto; margin: 1.5rem 0; border: 1px solid var(--border); border-radius: var(--radius-md); }
+.prose table { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 32rem; }
+.prose caption { caption-side: top; text-align: left; padding: .8rem 1rem; color: var(--text-dim); font-size: .85rem; }
+.prose th, .prose td { padding: .65rem 1rem; text-align: left; border-top: 1px solid var(--border); vertical-align: top; }
+.prose thead th { color: var(--text); background: var(--bg-elevated); }
+.prose tfoot td { color: var(--text-dim); }
+.prose details { margin: 1.25rem 0; padding: .9rem 1.1rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-elevated); }
+.prose summary { cursor: pointer; color: var(--text); font-weight: 600; }
+.prose hr { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+.prose small { color: var(--text-dim); }
+.back-top { display: inline-block; margin-top: .5rem; font-size: .85rem; }
+.fn-ref a { text-decoration: none; }
+@media (max-width: 900px) { .doc-layout { grid-template-columns: 1fr; gap: 1.5rem; } .doc-toc { position: static; } }
+
+/* Вкладки (ЛР №4) */
+.tabs [role="tablist"] { display: flex; gap: .25rem; border-bottom: 1px solid var(--border); }
+.tabs [role="tab"] { padding: .6rem 1rem; background: none; border: 0; border-bottom: 2px solid transparent; color: var(--text-muted); font: 600 .9rem var(--font-sans); cursor: pointer; }
+.tabs [role="tab"][aria-selected="true"] { color: var(--text); border-bottom-color: var(--accent); }
+.tabs [role="tabpanel"] { padding: 1rem 0; }
+.aside-note { margin: 1.5rem 0; padding: 1rem 1.25rem; border: 1px dashed var(--border-strong); border-radius: var(--radius-md); }
+.aside-note h2, .aside-note h3 { margin: 0 0 .4rem; padding: 0; border: 0; font-size: 1rem; }
+.byline { color: var(--text-dim); font-size: .9rem; }
+.byline address { display: inline; font-style: normal; }
