@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ЛР №4 — Семантика та доступність</title>
+  <meta name="description" content="Лабораторна робота №4: несемантична та семантична версії сторінки, ARIA, JSON-LD і аудити.">
+  <meta name="theme-color" content="#0e0e0f">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/article.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти до основного вмісту</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="../../index.html"><span class="logo-mark" aria-hidden="true">W</span>WebLabs</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Меню"><span></span></button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Головна навігація">
+      <ul class="nav-list"><li><a href="../../index.html">Головна</a></li><li><a href="../../labs/lab3/document.html">ЛР №3</a></li><li><a href="../../labs/lab4/index.html" aria-current="page">ЛР №4</a></li><li><a href="../../about.html">Автор</a></li></ul>
+    </nav>
+    <div class="header-actions"><a class="btn btn-primary" href="../../index.html#labs">До лабораторних</a></div>
+  </div>
+</header>
+<main id="main" class="doc">
+  <div class="container">
+    <article class="prose" aria-labelledby="title">
+      <header>
+        <p class="eyebrow">Лабораторна робота №4</p>
+        <h1 id="title">Семантика та доступність</h1>
+        <p class="lead">Одну й ту саму сторінку зроблено у двох версіях: початковій несемантичній і покращеній семантичній.</p>
+      </header>
+      <section aria-labelledby="versions">
+        <h2 id="versions">Дві версії сторінки</h2>
+        <ul>
+          <li><a href="before.html">Початкова версія</a> — майже лише <code>div</code> і <code>span</code>, без landmarks, із навмисними проблемами доступності.</li>
+          <li><a href="after.html">Семантична версія</a> — <code>header</code>, <code>nav</code>, <code>main</code>, <code>article</code>, <code>section</code>, <code>aside</code>, <code>figure</code>, <code>details</code>, <code>address</code>, <code>time</code>, ARIA, skip link, доступні вкладки та Schema.org JSON-LD.</li>
+        </ul>
+      </section>
+      <section aria-labelledby="diff">
+        <h2 id="diff">Що змінено</h2>
+        <div class="table-wrap">
+          <table>
+            <caption>Порівняння версій</caption>
+            <thead><tr><th scope="col">Аспект</th><th scope="col">Початкова</th><th scope="col">Семантична</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Структура</th><td><code>div</code>/<code>span</code></td><td>landmarks: <code>header</code>, <code>nav</code>, <code>main</code>, <code>aside</code>, <code>footer</code></td></tr>
+              <tr><th scope="row">Заголовки</th><td>стилізовані <code>div</code></td><td><code>h1</code>–<code>h2</code> у логічному порядку</td></tr>
+              <tr><th scope="row">Мова документа</th><td>не вказана</td><td><code>lang="uk"</code></td></tr>
+              <tr><th scope="row">Зображення</th><td>без <code>alt</code></td><td>змістовний <code>alt</code> і <code>figcaption</code></td></tr>
+              <tr><th scope="row">Інтерактивність</th><td><code>div onclick</code>, недоступний з клавіатури</td><td><code>details/summary</code> і вкладки з ARIA та стрілками</td></tr>
+              <tr><th scope="row">Навігація клавіатурою</th><td>немає skip link</td><td>skip link, видимий фокус, <kbd>Esc</kbd> закриває меню</td></tr>
+              <tr><th scope="row">Мікророзмітка</th><td>немає</td><td>JSON-LD: WebPage, Article, Person, BreadcrumbList, FAQPage</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section aria-labelledby="audits">
+        <h2 id="audits">Перевірки</h2>
+        <p>Результати Lighthouse, axe, W3C (Nu Html Checker) і перевірки Schema.org наведено у звіті до лабораторної роботи №4 (папка <code>reports</code>).</p>
+      </section>
+    </article>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="../../index.html"><span class="logo-mark" aria-hidden="true">W</span>WebLabs</a>
+        <p class="footer-note">Навчальний проєкт з дисципліни «Веб-програмування»: лабораторні роботи №1–№4 в одному статичному сайті.</p>
+      </div>
+      <div><h2>Сайт</h2><ul><li><a href="../../index.html">Головна</a></li><li><a href="../../about.html">Про автора</a></li></ul></div>
+      <div><h2>Лабораторні</h2><ul><li><a href="../../index.html#labs">ЛР №1 — Сайт</a></li><li>ЛР №2 — Клієнт-сервер</li><li><a href="../../labs/lab3/document.html">ЛР №3 — HTML-розмітка</a></li><li><a href="../../labs/lab4/index.html">ЛР №4 — Семантика</a></li></ul></div>
+      <div><h2>Технології</h2><ul><li>HTML5</li><li>CSS3</li><li>JavaScript (vanilla)</li></ul></div>
+    </div>
+    <p class="copyright">© <span id="year">2026</span> Купець Олексій, ІПЗ-26. Навчальний проєкт. Дизайн адаптовано з макета Figma Community.</p>
+  </div>
+</footer>
+<script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

@@ -218,3 +218,7 @@ a.card:hover { border-color: rgba(255,98,67,.5); transform: translateY(-3px); ba
   .section { padding: 3.5rem 0; }
   .footer-grid { grid-template-columns: 1fr; }
 }
+
+/* Посилання-заголовки карток */
+.card h3 a::after { content: ""; position: absolute; inset: 0; }
+.card h3 a:hover { color: var(--accent-light); }
