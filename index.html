@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebLabs — лабораторні роботи з веб-програмування</title>
+  <meta name="description" content="Навчальний сайт з дисципліни «Веб-програмування»: лабораторні роботи №1–№4 — публікація сайту, клієнт-серверна взаємодія, HTML-розмітка та семантика.">
+  <meta name="theme-color" content="#0e0e0f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти до основного вмісту</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html" aria-label="Веб-програмування — на головну"><span class="logo-mark" aria-hidden="true">W</span>WebLabs</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Меню"><span></span></button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Головна навігація">
+      <ul class="nav-list">
+        <li><a href="index.html" aria-current="page">Головна</a></li>
+        <li><a href="index.html#labs">Лабораторні</a></li>
+        <li><a href="about.html">Автор</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions"><a class="btn btn-primary" href="index.html#labs">До лабораторних</a></div>
+  </div>
+</header>
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container">
+      <h1 class="title-xl" id="hero-title">Чотири лабораторні.<br><span class="accent-text">Один вебпроєкт.</span></h1>
+      <p class="lead">Навчальний сайт з веб-програмування: від публікації на GitHub Pages до семантичної розмітки та доступності — на чистих HTML5, CSS3 і JavaScript.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="#labs">Переглянути лабораторні →</a>
+        <a class="btn btn-ghost btn-lg" href="about.html">Про автора</a>
+      </div>
+      <dl class="stats" aria-label="Коротко про проєкт">
+        <div class="stat"><dd class="stat-value">4</dd><dt class="stat-label">лабораторні в одному проєкті</dt></div>
+        <div class="stat"><dd class="stat-value">0</dd><dt class="stat-label">фреймворків і залежностей</dt></div>
+        <div class="stat"><dd class="stat-value">100%</dd><dt class="stat-label">статичний сайт для GitHub Pages</dt></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="labs" aria-labelledby="labs-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Лабораторні роботи</p>
+        <h2 class="title-lg" id="labs-title">Що входить у проєкт</h2>
+        <p class="lead">Спільні стилі та скрипти лежать в одному місці, а кожна лабораторна додає лише свої сторінки.</p>
+      </div>
+      <ul class="card-grid">
+        <li class="card reveal"><span class="card-icon" aria-hidden="true">1</span><h3>ЛР №1 — Створення та публікація сайту</h3><p>Головна сторінка, інформація про автора, навігація, README та Git-історія.</p><span class="badge badge-ok">Реалізовано</span></li>
+        <li class="card reveal"><span class="card-icon" aria-hidden="true">2</span><h3>ЛР №2 — Клієнт-серверна взаємодія</h3><p>URL, DNS, HTTP-заголовки, коди відповідей, кешування, TLS та Lighthouse.</p><span class="badge badge-todo">Після публікації</span></li>
+        <li class="card reveal"><span class="card-icon" aria-hidden="true">3</span><h3>ЛР №3 — HTML-розмітка</h3><p>Навчальний документ від 800 слів і parser-test.html з навмисними помилками.</p><span class="badge badge-todo">Очікує варіант</span></li>
+        <li class="card reveal"><span class="card-icon" aria-hidden="true">4</span><h3>ЛР №4 — Семантика та доступність</h3><p>Несемантична й семантична версії сторінки, ARIA, JSON-LD та аудити.</p><span class="badge badge-todo">Заплановано</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="stack-title">
+    <div class="container split">
+      <div class="reveal">
+        <p class="eyebrow">Структура</p>
+        <h2 class="title-lg" id="stack-title">Без дублювання коду</h2>
+        <p class="lead">Усі сторінки підключають один файл стилів і один скрипт. Лабораторні живуть у власних папках, а звіти та матеріали перевірок — окремо.</p>
+        <a class="btn btn-ghost" href="about.html">Дізнатися про автора</a>
+      </div>
+      <pre class="code-block reveal" aria-label="Структура папок проєкту"><code>web/
+├─ index.html
+├─ about.html
+├─ assets/
+│  ├─ css/style.css
+│  ├─ js/main.js
+│  └─ img/
+├─ labs/      # сторінки ЛР №2–№4
+├─ reports/   # матеріали для PDF-звітів
+└─ README.md</code></pre>
+    </div>
+  </section>
+
+  <section class="container" aria-labelledby="cta-title">
+    <div class="cta reveal">
+      <h2 class="title-lg" id="cta-title">Готово до публікації</h2>
+      <p>Сайт повністю статичний і працює на GitHub Pages без збірки.</p>
+      <a class="btn btn-lg" href="about.html">Про автора</a>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">W</span>WebLabs</a>
+        <p class="footer-note">Навчальний проєкт з дисципліни «Веб-програмування»: лабораторні роботи №1–№4 в одному статичному сайті.</p>
+      </div>
+      <div><h2>Сайт</h2><ul><li><a href="index.html">Головна</a></li><li><a href="about.html">Про автора</a></li></ul></div>
+      <div><h2>Лабораторні</h2><ul><li><a href="index.html#labs">ЛР №1 — Сайт</a></li><li>ЛР №2 — Клієнт-сервер</li><li>ЛР №3 — HTML-розмітка</li><li>ЛР №4 — Семантика</li></ul></div>
+      <div><h2>Технології</h2><ul><li>HTML5</li><li>CSS3</li><li>JavaScript (vanilla)</li></ul></div>
+    </div>
+    <p class="copyright">© <span id="year">2026</span> Навчальний проєкт. Дизайн адаптовано з макета Figma Community.</p>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
