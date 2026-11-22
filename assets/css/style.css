@@ -54,7 +54,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 .container { width: min(100% - 2rem, var(--container)); margin-inline: auto; }
 .visually-hidden {
   position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
-  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+.visually-hidden.focusable:focus, .visually-hidden.focusable:focus-visible {
+  position: static; width: auto; height: auto; margin: 0; clip-path: none; white-space: normal;
 }
 .skip-link {
   position: absolute; left: 1rem; top: -4rem; z-index: 200;
@@ -235,3 +238,5 @@ a.card:hover { border-color: rgba(255,98,67,.5); transform: translateY(-3px); ba
 .prose-block p { margin: 0 0 1rem; color: var(--text-muted, #b3b3b3); line-height: 1.7; }
 address { font-style: normal; }
 .title-lg + .lead, .title-lg + p { margin-top: 1rem; }
+
+.article-footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: .9rem; color: var(--text-dim); }

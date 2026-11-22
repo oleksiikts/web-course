@@ -90,6 +90,14 @@
             "@type": "Answer",
             "text": "Спочатку використовують нативні елементи, а ARIA додають лише там, де їх недостатньо."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Скільки елементів main може бути на сторінці?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Рівно один видимий елемент main, усередині якого заголовки йдуть у логічному порядку."
+          }
         }
       ]
     }
@@ -111,7 +119,7 @@
 </header>
 <main id="main" class="doc">
   <div class="container">
-    <nav aria-label="Хлібні крихти" class="byline"><ol style="display:flex;gap:.5rem;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 1.5rem"><li><a href="../../index.html">Головна</a> /</li><li><a href="index.html">ЛР №4</a> /</li><li aria-current="page">Семантична версія</li></ol></nav>
+    <nav aria-label="Хлібні крихти" class="byline"><ol style="display:flex;gap:.5rem;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 1.5rem"><li><a href="../../index.html">Головна</a> <span aria-hidden="true">/</span></li><li><a href="index.html">ЛР №4</a> <span aria-hidden="true">/</span></li><li aria-current="page">Семантична версія</li></ol></nav>
     <div class="doc-layout">
       <article class="prose" aria-labelledby="article-title">
         <header>
@@ -164,7 +172,14 @@
             <summary>Чи потрібен ARIA, якщо є семантика?</summary>
             <p>Спочатку використовують нативні елементи, а ARIA додають лише там, де їх недостатньо.</p>
           </details>
+          <details>
+            <summary>Скільки елементів main може бути на сторінці?</summary>
+            <p>Рівно один видимий елемент main, усередині якого заголовки йдуть у логічному порядку.</p>
+          </details>
         </section>
+        <footer class="article-footer">
+          <p>Оновлено <time datetime="2026-11-22">22 листопада 2026&nbsp;р.</time> · <a href="../../about.html">Детальніше<span class="visually-hidden"> про автора статті</span></a></p>
+        </footer>
       </article>
       <aside class="doc-toc" aria-labelledby="aside-title">
         <h2 id="aside-title">Порада</h2>
@@ -186,7 +201,7 @@
       <div><h2>Лабораторні</h2><ul><li><a href="../../index.html#labs">ЛР №1 — Сайт</a></li><li>ЛР №2 — Клієнт-сервер</li><li><a href="../../labs/lab3/document.html">ЛР №3 — HTML-розмітка</a></li><li><a href="../../labs/lab4/index.html">ЛР №4 — Семантика</a></li></ul></div>
       <div><h2>Технології</h2><ul><li>HTML5</li><li>CSS3</li><li>JavaScript (vanilla)</li></ul></div>
     </div>
-    <p class="copyright">© <span id="year">2026</span> Купець Олексій, ІПЗ-26. Навчальний проєкт. Дизайн адаптовано з макета Figma Community.</p>
+    <p class="copyright">© <time id="year" datetime="2026">2026</time> Купець Олексій, ІПЗ-26. Навчальний проєкт. Дизайн адаптовано з макета Figma Community.</p>
   </div>
 </footer>
 <script src="../../assets/js/main.js" defer></script>
