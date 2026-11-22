@@ -16,7 +16,7 @@
     <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">W</span>WebLabs</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Меню"><span></span></button>
     <nav class="primary-nav" id="primary-nav" aria-label="Головна навігація">
-      <ul class="nav-list"><li><a href="index.html" aria-current="page">Головна</a></li><li><a href="labs/lab3/document.html">ЛР №3</a></li><li><a href="labs/lab4/index.html">ЛР №4</a></li><li><a href="about.html">Автор</a></li></ul>
+      <ul class="nav-list"><li><a href="index.html" aria-current="page">Головна</a></li><li><a href="labs/lab3/document.html">ЛР №3</a></li><li><a href="labs/lab4/index.html">ЛР №4</a></li><li><a href="about.html">Автор</a></li><li><a href="contacts.html">Контакти</a></li></ul>
     </nav>
     <div class="header-actions"><a class="btn btn-primary" href="index.html#labs">До лабораторних</a></div>
   </div>
@@ -38,6 +38,26 @@
     </div>
   </section>
 
+  <section class="section" id="project" aria-labelledby="project-title">
+    <div class="container split">
+      <div class="reveal">
+        <p class="eyebrow">Індивідуальне завдання</p>
+        <h2 class="title-lg" id="project-title">Тема навчального проєкту</h2>
+        <p class="lead">Навчальний сайт-портфоліо лабораторних робіт з веб-програмування. Протягом семестру сайт поповнюється результатами кожної лабораторної: від першої опублікованої сторінки до семантичної, доступної та перевіреної валідаторами розмітки.</p>
+        <p>Автор: Купець Олексій, група ІПЗ-26, варіант 7.</p>
+      </div>
+      <div class="panel reveal">
+        <h2 class="title-md" id="tech-list-title">Перелік технологій, що вивчаються</h2>
+        <ul class="check-list" aria-labelledby="tech-list-title">
+          <li>HTML — структура та змістова розмітка документа</li>
+          <li>CSS — оформлення та адаптивна верстка</li>
+          <li>JavaScript — базова інтерактивність</li>
+          <li>Git і GitHub Pages — контроль версій та публікація</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="labs" aria-labelledby="labs-title">
     <div class="container">
       <div class="section-head reveal">
@@ -47,7 +67,7 @@
       </div>
       <ul class="card-grid">
         <li class="card reveal"><span class="card-icon" aria-hidden="true">1</span><h3>ЛР №1 — Створення та публікація сайту</h3><p>Головна сторінка, інформація про автора, навігація, README та Git-історія.</p><span class="badge badge-ok">Реалізовано</span></li>
-        <li class="card reveal"><span class="card-icon" aria-hidden="true">2</span><h3>ЛР №2 — Клієнт-серверна взаємодія</h3><p>URL, DNS, HTTP-заголовки, коди відповідей, кешування, TLS та Lighthouse.</p><span class="badge badge-todo">Після публікації</span></li>
+        <li class="card reveal"><span class="card-icon" aria-hidden="true">2</span><h3>ЛР №2 — Клієнт-серверна взаємодія</h3><p>URL, DNS, HTTP-заголовки, коди відповідей, кешування, TLS та Lighthouse.</p><span class="badge badge-todo">У роботі</span></li>
         <li class="card reveal"><span class="card-icon" aria-hidden="true">3</span><h3><a href="labs/lab3/document.html">ЛР №3 — Адаптивний вебдизайн</a></h3><p>Навчальний документ (варіант 7) і parser-test.html з навмисними помилками.</p><span class="badge badge-ok">Реалізовано</span></li>
         <li class="card reveal"><span class="card-icon" aria-hidden="true">4</span><h3><a href="labs/lab4/index.html">ЛР №4 — Семантика та доступність</a></h3><p>Несемантична й семантична версії сторінки, ARIA, JSON-LD та аудити.</p><span class="badge badge-ok">Реалізовано</span></li>
       </ul>
@@ -65,6 +85,7 @@
       <figure class="reveal"><figcaption class="visually-hidden">Структура папок проєкту</figcaption><pre class="code-block"><code>web/
 ├─ index.html
 ├─ about.html
+├─ contacts.html
 ├─ assets/
 │  ├─ css/style.css
 │  ├─ js/main.js
@@ -90,7 +111,7 @@
         <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">W</span>WebLabs</a>
         <p class="footer-note">Навчальний проєкт з дисципліни «Веб-програмування»: лабораторні роботи №1–№4 в одному статичному сайті.</p>
       </div>
-      <div><h2>Сайт</h2><ul><li><a href="index.html">Головна</a></li><li><a href="about.html">Про автора</a></li></ul></div>
+      <div><h2>Сайт</h2><ul><li><a href="index.html">Головна</a></li><li><a href="about.html">Про автора</a></li><li><a href="contacts.html">Контакти</a></li></ul></div>
       <div><h2>Лабораторні</h2><ul><li><a href="index.html#labs">ЛР №1 — Сайт</a></li><li>ЛР №2 — Клієнт-сервер</li><li><a href="labs/lab3/document.html">ЛР №3 — HTML-розмітка</a></li><li><a href="labs/lab4/index.html">ЛР №4 — Семантика</a></li></ul></div>
       <div><h2>Технології</h2><ul><li>HTML5</li><li>CSS3</li><li>JavaScript (vanilla)</li></ul></div>
     </div>

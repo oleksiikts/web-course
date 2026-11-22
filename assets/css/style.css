@@ -225,3 +225,13 @@ a.card:hover { border-color: rgba(255,98,67,.5); transform: translateY(-3px); ba
 
 /* Запобігає розпиранню grid-колонок довгим вмістом (код, таблиці) */
 .split > * { min-width: 0; }
+
+/* Theme/about blocks (ЛР №1) */
+.title-md { font-size: 1.25rem; line-height: 1.3; margin: 0 0 1rem; }
+.check-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; }
+.check-list li { position: relative; padding-left: 1.75rem; color: var(--text-muted, #b3b3b3); }
+.check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.prose-block { max-width: 72ch; }
+.prose-block p { margin: 0 0 1rem; color: var(--text-muted, #b3b3b3); line-height: 1.7; }
+address { font-style: normal; }
+.title-lg + .lead, .title-lg + p { margin-top: 1rem; }
