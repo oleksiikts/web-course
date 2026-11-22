@@ -222,3 +222,6 @@ a.card:hover { border-color: rgba(255,98,67,.5); transform: translateY(-3px); ba
 /* Посилання-заголовки карток */
 .card h3 a::after { content: ""; position: absolute; inset: 0; }
 .card h3 a:hover { color: var(--accent-light); }
+
+/* Запобігає розпиранню grid-колонок довгим вмістом (код, таблиці) */
+.split > * { min-width: 0; }
