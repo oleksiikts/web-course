@@ -1,0 +1,99 @@
+<!-- ERR-01: відсутній <!DOCTYPE html> -> браузер входить у quirks mode -->
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- ERR-02: відсутній елемент <title> -->
+<link rel="stylesheet" href="../../assets/css/style.css">
+<style>body{padding:1rem 2rem;max-width:60rem;margin:auto} section{border-top:1px solid #444;padding:.8rem 0}</style>
+</head>
+<body>
+<h1>parser-test: навмисні помилки HTML</h1>
+<p>Сторінка містить помилки розмітки для дослідження того, як парсер браузера їх обробляє.
+
+<section id="t03">
+<h2>ERR-03: неправильна вкладеність тегів</h2>
+<p><b>жирний <i>курсив</b> після закриття b</i> звичайний текст</p>
+</section>
+
+<section id="t04">
+<h2>ERR-04: незакриті абзаци</h2>
+<p>Перший абзац без закриття
+<p>Другий абзац без закриття
+<p>Третій абзац
+</section>
+
+<section id="t05">
+<h2>ERR-05: блок div усередині p</h2>
+<p>Текст до блоку <div id="inner-div">блок усередині абзацу</div> текст після блоку</p>
+</section>
+
+<section id="t06">
+<h2>ERR-06: незакриті елементи списку</h2>
+<ul>
+<li>Пункт 1
+<li>Пункт 2
+<li>Пункт 3
+</ul>
+</section>
+
+<section id="t07">
+<h2>ERR-07: посилання всередині посилання</h2>
+<a href="#one" id="outer-a">зовнішнє <a href="#two" id="inner-a">внутрішнє</a> кінець</a>
+</section>
+
+<section id="t08">
+<h2>ERR-08: атрибут без лапок зі значенням із пробілом</h2>
+<div class=one two id="unquoted">елемент із class=one two</div>
+</section>
+
+<section id="t09">
+<h2>ERR-09: повторення атрибута та дубль id</h2>
+<p id="first" id="second" class="a" class="b">Абзац із двома id та class</p>
+<p id="dup">Перший dup</p>
+<p id="dup">Другий dup</p>
+</section>
+
+<section id="t10">
+<h2>ERR-10: сторонній вміст усередині table</h2>
+<table id="bad-table">
+<div id="foster-div">div у таблиці</div>
+текст у таблиці
+<tr><td>клітинка 1<td>клітинка 2</tr>
+</table>
+</section>
+
+<section id="t11">
+<h2>ERR-11: невідомий тег і самозакритий div</h2>
+<foo id="unknown">невідомий елемент</foo>
+<div id="selfclosed"/>
+<p id="after-selfclosed">абзац після div/</p>
+</section>
+
+<section id="t12">
+<h2>ERR-12: неекрановані символи</h2>
+<p id="amp">AT&T, &copy 2026, a < b, 5 > 3, R&D</p>
+</section>
+
+<section id="t13">
+<h2>ERR-13: застарілі елементи та img без alt</h2>
+<center id="center">центрований текст</center>
+<font color="red" id="font">червоний текст</font>
+<img id="noalt" src="img/breakpoints.svg" width="120" height="40">
+</section>
+
+<section id="t14">
+<h2>ERR-14: </br>, зайві закриваючі теги, форма у формі</h2>
+<p id="brtest">рядок 1</br>рядок 2</p>
+</span></div>
+<form id="f1"><input name="a"><form id="f2"><input name="b"></form></form>
+</section>
+
+<section id="t15">
+<h2>ERR-15: td без tr і заголовок у span</h2>
+<span id="hspan"><h3 id="h3inspan">заголовок усередині span</h3></span>
+</section>
+
+</body>
+<p id="after-body">ERR-16: контент після &lt;/body&gt;</p>
+<!-- ERR-17: відсутній закриваючий </html> -->
