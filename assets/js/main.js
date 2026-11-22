@@ -29,5 +29,5 @@
   }
 
   const year = document.getElementById('year');
-  if (year) year.textContent = new Date().getFullYear();
+  if (year) { const y = String(new Date().getFullYear()); year.textContent = y; year.setAttribute('datetime', y); }
 })();
